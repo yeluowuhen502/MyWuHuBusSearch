@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".IC_Card_Pos_view_Activity" >
+
+    <EditText
+        android:id="@+id/et_bike_pos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入您想要查询的地点" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_container_iv_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:id="@+id/bike_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </ListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

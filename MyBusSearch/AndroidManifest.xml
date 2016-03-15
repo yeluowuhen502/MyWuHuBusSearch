@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.marsjiang.mygoogleplay"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="17" />
+    <!-- gps定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <!-- Required -->
+    <uses-permission android:name="com.marsjiang.mygoogleplay.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <!-- Required -->
+    <permission
+        android:name="com.marsjiang.mygoogleplay.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+
+        <!-- Required -->
+        <!-- Required -->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true" >
+            <intent-filter android:priority="1000" >
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+
+                <category android:name="com.marsjiang.mygoogleplay" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="com.marsjiang.mygoogleplay" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Required SDK核心功能 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.marsjiang.mygoogleplay" />
+            </intent-filter>
+        </activity>
+
+        <!-- Required SDK核心功能 -->
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
+        <!-- Required SDK核心功能 -->
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver" />
+
+        <!-- Required . Enable it you can get statistics data with channel -->
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="developer-default" />
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="14c99d7f995ff32e0ba0865d" />
+        <!-- </>值来自开发者平台取得的AppKey -->
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="1WwLSWiFnTWXZmCgGWeZy3vM" />
+
+        <activity
+            android:name="com.marsjiang.mygoogleplay.ui.activity.Bus_Search_Activity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.marsjiang.mygoogleplay.ui.activity.SplashActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.marsjiang.mygoogleplay.ui.activity.SelectionActivity"
+            android:label="功能选择" >
+        </activity>
+        <activity
+            android:name="com.marsjiang.mygoogleplay.ui.activity.Search_Bike_pos_Activity"
+            android:label="@string/title_activity_selection"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.marsjiang.mygoogleplay.ui.activity.Search_Bike_View_Activity"
+            android:label="公共自行车站点" >
+        </activity>
+        <activity
+            android:name="com.marsjiang.mygoogleplay.ui.activity.IC_Card_Pos_Activity"
+            android:label="@string/title_activity_selection"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.marsjiang.mygoogleplay.ui.activity.IC_Card_Pos_view_Activity"
+            android:label="IC充值卡地点" >
+        </activity>
+        <activity
+            android:name="com.marsjiang.mygoogleplay.ui.activity.Bus_Line_Search_Activity"
+            android:label="线路" >
+        </activity>
+        <activity
+            android:name="com.marsjiang.mygoogleplay.ui.activity.Bus_Line_Show_Activity"
+            android:label="线路" >
+        </activity>
+        <activity
+            android:name="com.marsjiang.mygoogleplay.ui.activity.Bus_Station_Activity"
+            android:label="站点信息" >
+        </activity>
+        <activity
+            android:name="com.marsjiang.mygoogleplay.ui.activity.BusStation_around_show"
+            android:label="站点周边" >
+        </activity>
+        <activity
+            android:name="com.marsjiang.mygoogleplay.ui.activity.GetNearStationActivity"
+            android:label="周边"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.marsjiang.mygoogleplay.BDMap.BDMapActivity"
+            android:label="线路规划" >
+        </activity>
+        <activity
+            android:name="com.marsjiang.mygoogleplay.ui.activity.RoutePlanActivity"
+            android:label="线路规划" >
+        </activity>
+        <activity
+            android:name="com.marsjiang.mygoogleplay.ui.activity.GuideUI"
+            android:label="感谢使用" >
+        </activity>
+    </application>
+
+</manifest>

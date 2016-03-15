@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Bus_Line_Search_Activity" >
+
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入您想要查询的线路"
+            android:text=""
+            />
+		<ListView 
+		    android:id="@+id/lv_search"
+		    android:layout_height="match_parent"
+		    android:layout_width="match_parent"
+		    ></ListView>
+</LinearLayout>

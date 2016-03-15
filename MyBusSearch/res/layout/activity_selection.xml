@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SelectionActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/tv_bus_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/tv_bus_search_selector"
+            android:gravity="center"
+            android:text="公交车查询" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/tv_bike_station"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/tv_bike_station_selector"
+            android:gravity="center"
+            android:text="公共自行车查询" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/tv_ic_card"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/tv_ic_card_selector"
+            android:gravity="center"
+            android:text="ic卡充值点查询" />
+    </LinearLayout>
+
+</LinearLayout>
