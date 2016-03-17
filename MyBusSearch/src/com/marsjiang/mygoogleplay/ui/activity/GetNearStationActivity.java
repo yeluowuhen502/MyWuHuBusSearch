@@ -113,7 +113,7 @@ public class GetNearStationActivity extends Activity {
 			/*	params.setBodyEntity(new StringEntity(gson.toJson("要转成json的对象"),"UTF-8"));
 	​					params.setContentType("applicatin/json");*/
 				params.setBodyEntity(new StringEntity(gson.toJson(sendcurrentposbean),"UTF-8"));
-				System.out.println(gson.toJson(sendcurrentposbean));
+				//System.out.println(gson.toJson(sendcurrentposbean));
 				params.setContentType("applicatin/json");
 			} catch (UnsupportedEncodingException e){
 				e.printStackTrace();
@@ -124,7 +124,7 @@ public class GetNearStationActivity extends Activity {
 
 			@Override
 			public void onFailure(HttpException arg0, String arg1) {
-				System.out.println("failed");
+			//	System.out.println("failed");
 				ToastUtil.showToast(getApplicationContext(), "请检查网络连接！");
 			}
 

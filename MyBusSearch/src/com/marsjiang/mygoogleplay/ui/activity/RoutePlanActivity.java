@@ -72,7 +72,7 @@ public class RoutePlanActivity extends ActionBarActivity {
 			@Override
 			public void onGetDrivingRouteResult(DrivingRouteResult result) {
 
-				System.out.println(result + "------" + result.error);
+				//System.out.println(result + "------" + result.error);
 				if (result == null
 						|| result.error != SearchResult.ERRORNO.NO_ERROR) {
 					Toast.makeText(RoutePlanActivity.this, "抱歉，未找到结果",
@@ -100,10 +100,10 @@ public class RoutePlanActivity extends ActionBarActivity {
 
 			}
 		});
-		System.out.println(lat_00+"---=+===================="+log_00);
+		//System.out.println(lat_00+"---=+===================="+log_00);
 		LatLng stlatlng = new LatLng(Double.parseDouble(lat_00),Double.parseDouble(log_00));
 		LatLng enlatlng = new LatLng(Double.parseDouble(lat_01),Double.parseDouble(log_01));
-		System.out.println(lat_01+"-------"+log_01);
+		//System.out.println(lat_01+"-------"+log_01);
 		PlanNode stNode = PlanNode.withLocation(stlatlng);
 		PlanNode enNode = PlanNode.withLocation(enlatlng);
 

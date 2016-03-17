@@ -68,11 +68,11 @@ public class BusStation_around_show extends ActionBarActivity {
 					handler.sendEmptyMessage(0);	
 				}
 				
-				System.out.println(countNum);
+				//System.out.println(countNum);
 				break;
 			case 0:
 				for(int i=0;i<arrivalList.size();i++){
-					System.out.println(arrivalList.get(i));
+					//System.out.println(arrivalList.get(i));
 				}
 				countNum = 0;
 				
@@ -80,7 +80,7 @@ public class BusStation_around_show extends ActionBarActivity {
 				
 				ToastUtil.showToast(getApplicationContext(), "刷新完成^_^");
 				for (GetArrivalInfo arrivall : arrivalList) {
-					System.out.println("之后"+arrivall);
+					//System.out.println("之后"+arrivall);
 				}
 				swiperefreshlayout.setRefreshing(false);
 				//arrivalList = new ArrayList<GetArrivalInfo>();
@@ -91,7 +91,7 @@ public class BusStation_around_show extends ActionBarActivity {
 				
 			case 2:
 				/*for (GetArrivalInfo arrivall : arrivalList) {
-					System.out.println("以前"+arrivall);
+					//System.out.println("以前"+arrivall);
 				}*/
 				getBus_InfoDetail();
 				break;

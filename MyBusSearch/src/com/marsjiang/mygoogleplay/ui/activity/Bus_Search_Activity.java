@@ -56,7 +56,9 @@ public class Bus_Search_Activity extends ActionBarActivity {
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
+		if(mhandler==null){
 		mhandler.sendEmptyMessageDelayed(0, 3000);
+		}
 	}
 	
 	private void setActionBar() {

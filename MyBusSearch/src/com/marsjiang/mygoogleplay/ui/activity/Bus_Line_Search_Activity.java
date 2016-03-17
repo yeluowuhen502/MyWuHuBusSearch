@@ -52,7 +52,7 @@ public class Bus_Line_Search_Activity extends ActionBarActivity {
 	
 	private Handler mHandler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
-			System.out.println("收到消息");
+			//System.out.println("收到消息");
 			searchbusnumadapter.notifyDataSetChanged();
 		};
 	};
@@ -164,7 +164,7 @@ public class Bus_Line_Search_Activity extends ActionBarActivity {
 		/*	params.setBodyEntity(new StringEntity(gson.toJson("要转成json的对象"),"UTF-8"));
 ​					params.setContentType("applicatin/json");*/
 			params.setBodyEntity(new StringEntity(gson.toJson(sendbusnumbean),"UTF-8"));
-			System.out.println(gson.toJson(sendbusnumbean));
+			//System.out.println(gson.toJson(sendbusnumbean));
 			params.setContentType("applicatin/json");
 		} catch (UnsupportedEncodingException e){
 			e.printStackTrace();
@@ -175,7 +175,7 @@ public class Bus_Line_Search_Activity extends ActionBarActivity {
 
 			@Override
 			public void onFailure(HttpException arg0, String arg1) {
-				System.out.println("failed");
+				//System.out.println("failed");
 				ToastUtil.showToast(getApplicationContext(), "请检查网络连接！");
 			}
 
@@ -183,12 +183,12 @@ public class Bus_Line_Search_Activity extends ActionBarActivity {
 			public void onSuccess(ResponseInfo<String> string) {
 				
 				if(string!=null){
-					System.out.println(string.result);
+					//System.out.println(string.result);
 					getsearchbusnumbean = gson.fromJson(string.result,GetSearchBusNumBean.class);
 					mHandler.sendEmptyMessage(0);
 				}else{
 					ToastUtil.showToast(getApplicationContext(), "请输入正确格式的数据");
-					System.out.println("请输入正确格式的数据");
+					//System.out.println("请输入正确格式的数据");
 				}
 				
 			}

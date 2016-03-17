@@ -57,7 +57,7 @@ public class Search_Bike_pos_Activity extends Activity {
 		// 获取所有的定位方式
 		List<String> allProviders = mLocationManager.getAllProviders();
 		for (String string : allProviders) {
-			System.out.println(string);
+			//System.out.println(string);
 		}
 		// 请求位置服务, 获取位置信息
 		// 第一个参数: 定位方式
@@ -81,7 +81,7 @@ public class Search_Bike_pos_Activity extends Activity {
 				double longitude = location.getLongitude(); // 经度
 				location.getSpeed(); // 速度
 				location.getBearing(); // 轴向, 手机Y轴和地磁之间的角度
-				System.out.println("纬度: " + latitude + " 经度:" + longitude);
+			//	System.out.println("纬度: " + latitude + " 经度:" + longitude);
 				mtv.setText("纬度: " + latitude + " 经度:" + longitude);
 				
 				getDataFromServer(latitude, longitude);
@@ -100,7 +100,7 @@ public class Search_Bike_pos_Activity extends Activity {
 				double longitude = location.getLongitude(); // 经度
 				location.getSpeed(); // 速度
 				location.getBearing(); // 轴向, 手机Y轴和地磁之间的角度
-				System.out.println("纬度: " + latitude + " 经度:" + longitude);
+			//	System.out.println("纬度: " + latitude + " 经度:" + longitude);
 				mtv.setText("纬度: " + latitude + " 经度:" + longitude);
 				getDataFromServer(latitude, longitude);
 			}
@@ -131,19 +131,19 @@ public class Search_Bike_pos_Activity extends Activity {
 		/*	params.setBodyEntity(new StringEntity(gson.toJson("要转成json的对象"),"UTF-8"));
 ​					params.setContentType("applicatin/json");*/
 			params.setBodyEntity(new StringEntity(gson.toJson(send_bike_bean),"UTF-8"));
-			System.out.println(gson.toJson(send_bike_bean));
+			//System.out.println(gson.toJson(send_bike_bean));
 			params.setContentType("applicatin/json");
 		} catch (UnsupportedEncodingException e){
 			e.printStackTrace();
 		}
-		System.out.println("fangwen");
+	//	System.out.println("fangwen");
 		//访问网络获取数据
 		HttpUtils httpUtils = new HttpUtils();
 		httpUtils.send(HttpMethod.POST, "http://220.180.139.42:8980/SmartBusServer/Main", params, new RequestCallBack<String>() {
 
 			@Override
 			public void onFailure(com.lidroid.xutils.exception.HttpException arg0, String arg1) {	
-				System.out.println("failed");
+			//	System.out.println("failed");
 				ToastUtil.showToast(getApplicationContext(), "请检查网络连接！");}
 
 			@Override
@@ -161,7 +161,7 @@ public class Search_Bike_pos_Activity extends Activity {
 						JSONObject result = jsonObj.getJSONObject("result");
 						JSONObject list = result.getJSONObject("list");
 						JSONArray data = list.getJSONArray("data");
-						System.out.println("数目："+data.length());
+						//System.out.println("数目："+data.length());
 						
 						//System.out.println(data.getJSONArray(0).get(0)+""+data.getJSONArray(0).get(1));
 						final ArrayList<GetBike_bean_item> buslist = new ArrayList<GetBike_bean_item>();
@@ -207,7 +207,7 @@ public class Search_Bike_pos_Activity extends Activity {
 					
 				}else{
 					ToastUtil.showToast(getApplicationContext(), "请输入正确格式的数据");
-					System.out.println("请输入正确格式的数据");
+					//System.out.println("请输入正确格式的数据");
 				}
 				
 			

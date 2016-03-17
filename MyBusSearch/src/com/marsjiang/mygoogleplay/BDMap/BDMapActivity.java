@@ -43,7 +43,7 @@ public class BDMapActivity extends Activity {
 		longitude = Double.parseDouble(getIntent().getStringExtra("latitude"));
 		latitude = Double.parseDouble(getIntent().getStringExtra("longitude"));
 
-		System.out.println("latitude" + latitude + "longitude" + longitude);
+		//System.out.println("latitude" + latitude + "longitude" + longitude);
 
 		hmPos = new LatLng(latitude, longitude);
 		draw();

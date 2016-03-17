@@ -130,7 +130,7 @@ public class Search_Bike_View_Activity extends ActionBarActivity {
 		
 
 		for (GetBike_bean_item getBike_bean_item : buslist) {
-			System.out.println(getBike_bean_item);
+		//	System.out.println(getBike_bean_item);
 			// System.out.println("tes");
 		}
 
@@ -296,19 +296,19 @@ public class Search_Bike_View_Activity extends ActionBarActivity {
 			/*	params.setBodyEntity(new StringEntity(gson.toJson("要转成json的对象"),"UTF-8"));
 ​					params.setContentType("applicatin/json");*/
 			params.setBodyEntity(new StringEntity(gson .toJson(send_bike_bean),"UTF-8"));
-			System.out.println(gson.toJson(send_bike_bean));
+		//	System.out.println(gson.toJson(send_bike_bean));
 			params.setContentType("applicatin/json");
 		} catch (UnsupportedEncodingException e){
 			e.printStackTrace();
 		}
-		System.out.println("fangwen");
+		//System.out.println("fangwen");
 		//访问网络获取数据
 		HttpUtils httpUtils = new HttpUtils();
 		httpUtils.send(HttpMethod.POST, "http://220.180.139.42:8980/SmartBusServer/Main", params, new RequestCallBack<String>() {
 
 			@Override
 			public void onFailure(HttpException arg0, String arg1) {
-				System.out.println("failed");
+			//	System.out.println("failed");
 				ToastUtil.showToast(getApplicationContext(), "请检查网络连接！");
 			}
 
@@ -358,8 +358,8 @@ public class Search_Bike_View_Activity extends ActionBarActivity {
 					
 				}else{
 					ToastUtil.showToast(getApplicationContext(), "请输入正确格式的数据");
-					System.out.println("请输入正确格式的数据");
-				}
+					//System.out.println("请输入正确格式的数据");
+				}//
 				
 			}
 		});

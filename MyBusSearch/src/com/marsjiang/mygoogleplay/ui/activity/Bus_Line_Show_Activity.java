@@ -26,6 +26,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.lidroid.xutils.HttpUtils;
@@ -229,7 +230,7 @@ public class Bus_Line_Show_Activity extends ActionBarActivity {
 												//这里需要处理返回空数据的情况
 												if("{\"result".equals(string.result.toString().substring(0,8))){
 													GetBusStationInfoBean getbusstationinfobean = gson2.fromJson(string.result, GetBusStationInfoBean.class); 
-													System.out.println("getbusstationinfobean"+getbusstationinfobean.result.distance);
+													//System.out.println("getbusstationinfobean"+getbusstationinfobean.result.distance);
 													tv_coming_bus.setText("距离"+upLineStationList2.stationName+"还有"+getbusstationinfobean.result.willArriveTime+getbusstationinfobean.result.distance);
 													for(int i=0;i<downlinestationlist.size();i++){
 														downlinestationlist.get(i).isComing = 0;
@@ -244,7 +245,11 @@ public class Bus_Line_Show_Activity extends ActionBarActivity {
 													if(isComing<0){
 
 													}else{
-													downlinestationlist.get(currentup - Integer.parseInt(getbusstationinfobean.result.willArriveTime.substring(0,1))).isComing=1;
+													//	Toast.makeText(getApplicationContext(), "--------"+currentup+"']]]]]]]]]]]]]]]]"+Integer.parseInt(getbusstationinfobean.result.willArriveTime.substring(0,1)),0).show();
+													//downlinestationlist.get(currentup - Integer.parseInt(getbusstationinfobean.result.willArriveTime.substring(0,1))).isComing=1;
+														String str = getbusstationinfobean.result.willArriveTime.substring(0,1);
+														str = str.replaceAll("站", "");
+														downlinestationlist.get(currentup - Integer.parseInt(str)).isComing=1;
 													}
 													downbaseadapterextension.notifyDataSetChanged();
 													
@@ -253,7 +258,7 @@ public class Bus_Line_Show_Activity extends ActionBarActivity {
 												}
 											}else{
 												ToastUtil.showToast(getApplicationContext(), "请输入正确格式的数据");
-												System.out.println("请输入正确格式的数据");
+												//System.out.println("请输入正确格式的数据");
 											}
 											
 										}
@@ -299,7 +304,7 @@ public class Bus_Line_Show_Activity extends ActionBarActivity {
 									/*	params.setBodyEntity(new StringEntity(gson.toJson("要转成json的对象"),"UTF-8"));
 							​					params.setContentType("applicatin/json");*/
 										params.setBodyEntity(new StringEntity(gson.toJson(sendbusstationinfobean),"UTF-8"));
-										System.out.println(gson.toJson(sendbusstationinfobean));
+										//System.out.println(gson.toJson(sendbusstationinfobean));
 										params.setContentType("applicatin/json");
 									} catch (UnsupportedEncodingException e){
 										e.printStackTrace();
@@ -311,7 +316,7 @@ public class Bus_Line_Show_Activity extends ActionBarActivity {
 
 										@Override
 										public void onFailure(HttpException arg0, String arg1) {
-											System.out.println("failed");
+										//	System.out.println("failed");
 											ToastUtil.showToast(getApplicationContext(), "请检查网络连接！");
 										}
 
@@ -325,7 +330,7 @@ public class Bus_Line_Show_Activity extends ActionBarActivity {
 												//这里需要处理返回空数据的情况
 												if("{\"result".equals(string.result.toString().substring(0,8))){
 													GetBusStationInfoBean getbusstationinfobean = gson2.fromJson(string.result, GetBusStationInfoBean.class); 
-													System.out.println("getbusstationinfobean"+getbusstationinfobean.result.distance);
+												//	System.out.println("getbusstationinfobean"+getbusstationinfobean.result.distance);
 													tv_coming_bus01.setText("距离"+downLineStationList2.stationName+"还有"+getbusstationinfobean.result.willArriveTime+getbusstationinfobean.result.distance);
 													
 													for(int i=0;i<uplinestationlist.size();i++){
@@ -341,7 +346,12 @@ public class Bus_Line_Show_Activity extends ActionBarActivity {
 													if(isComing<0){
 
 													}else{
-														uplinestationlist.get(current_01 - Integer.parseInt(getbusstationinfobean.result.willArriveTime.substring(0,1))).isComing=1;
+														//Toast.makeText(getApplicationContext(), "--------"+current_01+"']]]]]]]]]]]]]]]]"+Integer.parseInt(getbusstationinfobean.result.willArriveTime),0).show();
+													    String str = getbusstationinfobean.result.willArriveTime;
+													    str = str.replaceAll("站", "");
+													    //System.out.println("站"+"]]]]]]]]]"+str);
+														//uplinestationlist.get(current_01 - Integer.parseInt(getbusstationinfobean.result.willArriveTime.substring(0,1))).isComing=1;
+													    uplinestationlist.get(current_01 - Integer.parseInt(str)).isComing=1;
 													}
 													upbaseadapterextension.notifyDataSetChanged();
 													
@@ -350,7 +360,7 @@ public class Bus_Line_Show_Activity extends ActionBarActivity {
 												}
 											}else{
 												ToastUtil.showToast(getApplicationContext(), "请输入正确格式的数据");
-												System.out.println("请输入正确格式的数据");
+											//	System.out.println("请输入正确格式的数据");
 											}
 											
 										}
