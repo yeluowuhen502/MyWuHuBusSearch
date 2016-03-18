@@ -241,11 +241,11 @@ public class Bus_Line_Show_Activity extends ActionBarActivity {
 													
 													downlinestationlist.get(currentup).ischecked = 1;
 													
-													int isComing = currentup - Integer.parseInt(getbusstationinfobean.result.willArriveTime.substring(0,1));
+													int isComing = currentup - Integer.parseInt(getbusstationinfobean.result.willArriveTime.replaceAll("站", ""));
 													if(isComing<0){
 
 													}else{
-													//	Toast.makeText(getApplicationContext(), "--------"+currentup+"']]]]]]]]]]]]]]]]"+Integer.parseInt(getbusstationinfobean.result.willArriveTime.substring(0,1)),0).show();
+														//Toast.makeText(getApplicationContext(), "--------"+currentup+"']]]]]]]]]]]]]]]]"+Integer.parseInt(getbusstationinfobean.result.willArriveTime.substring(0,1)),0).show();
 													//downlinestationlist.get(currentup - Integer.parseInt(getbusstationinfobean.result.willArriveTime.substring(0,1))).isComing=1;
 														String str = getbusstationinfobean.result.willArriveTime.substring(0,1);
 														str = str.replaceAll("站", "");
@@ -342,7 +342,7 @@ public class Bus_Line_Show_Activity extends ActionBarActivity {
 													
 													uplinestationlist.get(current_01).ischecked = 1;
 													
-													int isComing = current_01 - Integer.parseInt(getbusstationinfobean.result.willArriveTime.substring(0,1));
+													int isComing = current_01 - Integer.parseInt(getbusstationinfobean.result.willArriveTime.replaceAll("站", ""));
 													if(isComing<0){
 
 													}else{
